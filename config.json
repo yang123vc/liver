@@ -1,0 +1,23 @@
+{
+  "host": "0.0.0.0:8080",
+  "db": {
+    "host": "127.0.0.1",
+    "port": 3306,
+    "database": "liver",
+    "user": "liver",
+    "password": "liver"
+  },
+  "coolq": {
+    "api": "http://coolq.example.com:5700/",
+    "token": "token"
+  },
+  "liver": {
+    "admin": 1078533225,
+    "group": [
+      1234567890
+    ],
+    "special": {
+      "04-01": "{msg}\n注意：肝功能检测仪将于明天清除所有数据，永久停止服务，请大家抓住最后的打卡机会！"
+    }
+  }
+}
