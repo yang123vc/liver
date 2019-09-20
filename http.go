@@ -29,7 +29,8 @@ func coolqHandler(response http.ResponseWriter, request *http.Request) {
 			responseData, _ := json.Marshal(responseJSON)
 			response.WriteHeader(http.StatusOK)
 			response.Write(responseData)
-		case postData.PostType == "group":
+		case postData.PostType == "message" ||
+			postData.MessageType == "group":
 			// 处理群消息
 			liver(response, request, postData)
 		}
