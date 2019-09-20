@@ -2,7 +2,7 @@ package main
 
 import "time"
 
-type dbConfig struct {
+type dbConfigType struct {
 	Host     string
 	Port     int
 	Database string
@@ -10,22 +10,22 @@ type dbConfig struct {
 	Password string
 }
 
-type coolqConfig struct {
+type coolqConfigType struct {
 	API   string `json:"api"`
 	Token string
 }
 
-type liverConfig struct {
+type liverConfigType struct {
 	Admin   int64
 	Group   []int64
 	Special map[string]string
 }
 
-type config struct {
+type configType struct {
 	Host  string
-	DB    dbConfig `json:"db"`
-	Coolq coolqConfig
-	Liver liverConfig
+	DB    dbConfigType `json:"db"`
+	Coolq coolqConfigType
+	Liver liverConfigType
 }
 
 type user struct {
@@ -41,4 +41,19 @@ type memberType struct {
 	QQ       int64 `json:"user_id"`
 	Nickname string
 	Card     string
+}
+
+type messageType struct {
+	Type string            `json:"type"`
+	Data map[string]string `json:"data"`
+}
+
+type postDataType struct {
+	PostType    string        `json:"post_type"`
+	MessageType string        `json:"message_type"`
+	SubType     string        `json:"sub_type"`
+	GroupID     int64         `json:"group_id"`
+	UserID      int64         `json:"user_id"`
+	Message     []messageType `json:"message"`
+	RawMessage  string        `json:"raw_message"`
 }

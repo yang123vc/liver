@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-var cfg *config
+var cfg *configType
 
 func initConfig() {
 	file, err := os.Open("config.json")
