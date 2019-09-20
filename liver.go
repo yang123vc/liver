@@ -9,13 +9,24 @@ import (
 
 func liver(response http.ResponseWriter, request *http.Request, postData postDataType) {
 	switch {
-	case strings.Contains(postData.RawMessage, "积分"):
-		grade(response, request, postData)
 	case strings.Contains(postData.RawMessage, "帮助") ||
 		strings.Contains(postData.RawMessage, "规则") ||
 		strings.Contains(postData.RawMessage, "命令") ||
 		strings.Contains(postData.RawMessage, "格式"):
 		help(response)
+	case strings.Contains(postData.RawMessage, "积分"):
+		grade(response, postData)
+	case strings.Contains(postData.RawMessage, "打卡") ||
+		strings.Contains(postData.RawMessage, "签到"):
+		check(response, postData)
+	default:
+		responseJSON := map[string]interface{}{
+			"reply": "",
+			"block": false,
+		}
+		responseData, _ := json.Marshal(responseJSON)
+		response.WriteHeader(http.StatusOK)
+		response.Write(responseData)
 	}
 }
 

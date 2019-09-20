@@ -33,6 +33,14 @@ func coolqHandler(response http.ResponseWriter, request *http.Request) {
 			postData.MessageType == "group":
 			// 处理群消息
 			liver(response, request, postData)
+		default:
+			responseJSON := map[string]interface{}{
+				"reply": "",
+				"block": false,
+			}
+			responseData, _ := json.Marshal(responseJSON)
+			response.WriteHeader(http.StatusOK)
+			response.Write(responseData)
 		}
 	} else {
 		response.WriteHeader(http.StatusBadRequest)

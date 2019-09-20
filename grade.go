@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func grade(response http.ResponseWriter, request *http.Request, postData postDataType) {
+func grade(response http.ResponseWriter, postData postDataType) {
 	qqs := getAt(postData.Message)
 	if len(qqs) > 0 {
 		// at了某些人
