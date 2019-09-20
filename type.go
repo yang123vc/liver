@@ -32,7 +32,7 @@ type user struct {
 	ID    uint      `gorm:"type:int(10);primary_key;auto_increment"`
 	QQ    int64     `gorm:"type:bigint(20);column:qq"`
 	Group int64     `gorm:"type:bigint(20);column:group"`
-	Grade float64   `gorm:"type:double;column:group"`
+	Grade float64   `gorm:"type:double;column:grade"`
 	Next  time.Time `gorm:"type:datetime;column:next"`
 	Ban   bool      `gorm:"type:tinyint(1);column:ban"`
 }
