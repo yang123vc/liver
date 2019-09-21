@@ -27,6 +27,7 @@ func coolqHandler(response http.ResponseWriter, request *http.Request) {
 				"block": false,
 			}
 			responseData, _ := json.Marshal(responseJSON)
+			response.Header().Add("Content-Type", "application/json")
 			response.WriteHeader(http.StatusOK)
 			response.Write(responseData)
 		case postData.PostType == "message" ||
@@ -39,6 +40,7 @@ func coolqHandler(response http.ResponseWriter, request *http.Request) {
 				"block": false,
 			}
 			responseData, _ := json.Marshal(responseJSON)
+			response.Header().Add("Content-Type", "application/json")
 			response.WriteHeader(http.StatusOK)
 			response.Write(responseData)
 		}

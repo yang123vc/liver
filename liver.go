@@ -25,6 +25,7 @@ func liver(response http.ResponseWriter, request *http.Request, postData postDat
 			"block": false,
 		}
 		responseData, _ := json.Marshal(responseJSON)
+		response.Header().Add("Content-Type", "application/json")
 		response.WriteHeader(http.StatusOK)
 		response.Write(responseData)
 	}
@@ -55,6 +56,7 @@ func help(response http.ResponseWriter) {
 		"block": true,
 	}
 	responseData, _ := json.Marshal(responseJSON)
+	response.Header().Add("Content-Type", "application/json")
 	response.WriteHeader(http.StatusOK)
 	response.Write(responseData)
 }

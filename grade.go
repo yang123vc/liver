@@ -45,6 +45,7 @@ func grade(response http.ResponseWriter, postData postDataType) {
 			"block": true,
 		}
 		responseData, _ := json.Marshal(responseJSON)
+		response.Header().Add("Content-Type", "application/json")
 		response.WriteHeader(http.StatusOK)
 		response.Write(responseData)
 	} else {
@@ -57,6 +58,7 @@ func grade(response http.ResponseWriter, postData postDataType) {
 			"block": true,
 		}
 		responseData, _ := json.Marshal(responseJSON)
+		response.Header().Add("Content-Type", "application/json")
 		response.WriteHeader(http.StatusOK)
 		response.Write(responseData)
 	}
