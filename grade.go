@@ -11,7 +11,7 @@ func grade(response http.ResponseWriter, postData postDataType) {
 	if len(qqs) > 0 {
 		// at了某些人
 		var users []user
-		db.Where("qq IN (?) AND group = ?", qqs, postData.GroupID).Find(&users)
+		db.Where("qq IN (?) AND `group` = ?", qqs, postData.GroupID).Find(&users)
 		var reply []messageType
 		reply = append(reply, messageType{
 			Type: "text",
@@ -21,10 +21,10 @@ func grade(response http.ResponseWriter, postData postDataType) {
 		})
 		for _, qq := range qqs {
 			var name string
-			if members[postData.GroupID][postData.UserID].Card != "" {
-				name = members[postData.GroupID][postData.UserID].Card
+			if members[postData.GroupID][qq].Card != "" {
+				name = members[postData.GroupID][qq].Card
 			} else {
-				name = members[postData.GroupID][postData.UserID].Nickname
+				name = members[postData.GroupID][qq].Nickname
 			}
 			var u user
 			for _, item := range users {
