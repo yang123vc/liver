@@ -14,6 +14,9 @@ func liver(response http.ResponseWriter, request *http.Request, postData postDat
 		strings.Contains(postData.RawMessage, "命令") ||
 		strings.Contains(postData.RawMessage, "格式"):
 		help(response)
+	case strings.Contains(postData.RawMessage, "排名") ||
+		strings.Contains(postData.RawMessage, "排行"):
+		rank(response, postData)
 	case strings.Contains(postData.RawMessage, "积分"):
 		grade(response, postData)
 	case strings.Contains(postData.RawMessage, "打卡") ||
@@ -43,7 +46,7 @@ func getAt(message []messageType) []int64 {
 }
 
 func help(response http.ResponseWriter) {
-	reply := "凌晨0、1、2、3、4、5点内可以签到，每小时包括前三十分钟和后三十分钟两个时间段，每个时间段只可签到一次，每次根据签到时间（并非时间段）计算积分并累加。\n" +
+	reply := "凌晨0、1、2、3、4、5点内可以打卡，每小时包括前三十分钟和后三十分钟两个时间段，每个时间段只可打卡一次，每次根据打卡时间（并非时间段）计算积分并累加。\n" +
 		"命令：\n" +
 		"！积分：查询自己的积分\n" +
 		"！积分 @某人：查询某人的积分\n" +

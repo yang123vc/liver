@@ -57,3 +57,9 @@ type postDataType struct {
 	Message     []messageType `json:"message"`
 	RawMessage  string        `json:"raw_message"`
 }
+
+type rankType struct {
+	QQ    int64   `gorm:"column:qq"`
+	Grade float64 `gorm:"column:grade"`
+	Rank  int     `gorm:"column:rank"`
+}
