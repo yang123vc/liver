@@ -84,7 +84,7 @@ func rank(response http.ResponseWriter, postData postDataType) {
 					},
 				})
 			}
-			self := all[postData.UserID]
+			self := allMap[postData.UserID]
 			var selfText string
 			if self.Rank == 0 {
 				selfText = "\n您尚未打卡，没有名次"
