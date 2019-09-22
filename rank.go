@@ -45,7 +45,7 @@ func rank(response http.ResponseWriter, postData postDataType) {
 				name = members[postData.GroupID][qq].Nickname
 			}
 			var text string
-			if allMap[qq].Grade == 0.0 {
+			if allMap[qq].Rank == 0 {
 				text = "\n" + name + "：尚未打卡，没有名次"
 			} else {
 				text = "\n" + name + "：积分" + fmt.Sprintf("%.2f", allMap[qq].Grade) + "，排名" + strconv.Itoa(allMap[qq].Rank) + "/" + strconv.Itoa(allNum)
