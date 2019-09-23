@@ -53,6 +53,7 @@ func help(response http.ResponseWriter) {
 		"！打卡/签到：打卡\n" +
 		"！排名/排行：查看排名情况\n" +
 		"！排名/排行 @某人：查询某人的排名\n" +
+		"！排名/排行 数字 [数字...]：查询特定排名的积分\n" +
 		"！帮助/规则/命令/格式：显示帮助信息"
 	responseJSON := map[string]interface{}{
 		"reply": reply,

@@ -60,6 +60,7 @@ type postDataType struct {
 
 type rankType struct {
 	QQ    int64   `gorm:"column:qq"`
+	Group int64   `gorm:"column:group"`
 	Grade float64 `gorm:"column:grade"`
 	Rank  int     `gorm:"column:rank"`
 }
