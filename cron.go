@@ -25,12 +25,15 @@ func sendLiverMsgCron() {
 		t = now.Hour()*2 + 1
 	}
 	msg := "肝活跃检查（" + strconv.Itoa(t) + "/12）新的打卡时间段开始~"
-	message := msg
+	help := "\n发送“！帮助”查看帮助信息"
+	message := msg + help
 	if cfg.Liver.Special[now.Format("01-02")] != "" {
 		message = strings.ReplaceAll(cfg.Liver.Special[now.Format("01-02")], "{msg}", msg)
+		message = strings.ReplaceAll(cfg.Liver.Special[now.Format("01-02")], "{help}", help)
 	}
 	if cfg.Liver.Special[now.Format("01-02 15:04:05")] != "" {
 		message = strings.ReplaceAll(cfg.Liver.Special[now.Format("01-02 15:04")], "{msg}", msg)
+		message = strings.ReplaceAll(cfg.Liver.Special[now.Format("01-02 15:04")], "{help}", help)
 	}
 	for _, group := range cfg.Liver.Group {
 		data := map[string]interface{}{
