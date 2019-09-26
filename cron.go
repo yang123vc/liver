@@ -31,7 +31,7 @@ func sendLiverMsgCron() {
 		message = strings.ReplaceAll(cfg.Liver.Special[now.Format("01-02")], "{msg}", msg)
 		message = strings.ReplaceAll(cfg.Liver.Special[now.Format("01-02")], "{help}", help)
 	}
-	if cfg.Liver.Special[now.Format("01-02 15:04:05")] != "" {
+	if cfg.Liver.Special[now.Format("01-02 15:04")] != "" {
 		message = strings.ReplaceAll(cfg.Liver.Special[now.Format("01-02 15:04")], "{msg}", msg)
 		message = strings.ReplaceAll(cfg.Liver.Special[now.Format("01-02 15:04")], "{help}", help)
 	}
